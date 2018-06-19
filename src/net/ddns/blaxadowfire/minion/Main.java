@@ -9,5 +9,6 @@ public class Main extends JavaPlugin {
     public void onEnable()
     {
         Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Minion Plugin is loading");
+        //this.getServer().getPluginManager().registerEvents(new Function(), this);
     }
 }

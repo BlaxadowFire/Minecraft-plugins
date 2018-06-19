@@ -7,11 +7,7 @@
 
  main: net.ddns.blaxadowfire.minion.Main
  database: false
- prefix: minion-
-
-commands:
-
-permissions:
+ prefix: minion
 
 
  # for info, check: https://bukkit.gamepedia.com/Plugin_YAML
