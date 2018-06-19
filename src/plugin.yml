@@ -9,5 +9,15 @@
  database: false
  prefix: minion
 
+ commands:
+    givesword:
+      description: Gives a sword.
+      usage: /givesword
+    clearinv:
+      description: Clears inventory.
+      usage: /clearinv
+    monster:
+      description: Spawn Spider.
+      usage: /monster
 
  # for info, check: https://bukkit.gamepedia.com/Plugin_YAML
