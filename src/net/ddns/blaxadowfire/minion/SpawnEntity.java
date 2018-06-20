@@ -13,17 +13,24 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class SpawnEntity implements Listener, CommandExecutor {
+    private Main plugin;
+    public SpawnEntity(Main plugin) {
+        this.plugin = plugin;
+    }
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         Player player = (Player) sender;
         if (sender instanceof Player) {
             String lowerCmd = cmd.getName().toLowerCase();
+            Inventory inv = player.getInventory();
             switch (lowerCmd) {
                 case "givesword":
-                    Inventory inv = player.getInventory();
-                    inv.addItem(new ItemStack(Material.DIAMOND, 1));
+                    inv.addItem(new ItemStack(Material.DIAMOND_SWORD,1));
                     break;
-                case "clearinv":
-                    Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Clear inventory??");
+                case "givearmor":
+                    inv.addItem(new ItemStack(Material.DIAMOND_HELMET, 1));
+                    inv.addItem(new ItemStack(Material.DIAMOND_CHESTPLATE,1));
+                    inv.addItem(new ItemStack(Material.DIAMOND_LEGGINGS, 1));
+                    inv.addItem(new ItemStack(Material.DIAMOND_BOOTS, 1));
                     break;
                 case "monster":
                     Location sploc = player.getLocation().add(2,0,0);

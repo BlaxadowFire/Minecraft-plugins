@@ -13,11 +13,9 @@
     givesword:
       description: Gives a sword.
       usage: /givesword
-    clearinv:
-      description: Clears inventory.
-      usage: /clearinv
     monster:
-      description: Spawn Spider.
+      description: Spawn Skeleton riding Spider.
       usage: /monster
-
+    givearmor:
+      description: give player Diamond armor
  # for info, check: https://bukkit.gamepedia.com/Plugin_YAML
