@@ -7,14 +7,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://D:/installed programs/mineSpigot/spigot-1.12.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../spigot-1.12.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
           <root url="jar://D:/installed programs/mineSpigot/spigot-1.12.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../spigot-1.12.2.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
