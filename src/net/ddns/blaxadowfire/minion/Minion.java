@@ -25,6 +25,7 @@ public class Minion {
 
         villager = (Villager) loc.getWorld().spawnEntity(loc, EntityType.VILLAGER);
         villager.getEquipment().setHelmet(skull);
+        villager.getEquipment().setItemInMainHand(new ItemStack(Material.WOOD_PICKAXE));
         villager.setAI(false);
         villager.setGlowing(true);
         villager.setBaby();
