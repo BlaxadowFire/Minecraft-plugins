@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class SpawnEntity implements Listener, CommandExecutor {
     private Main plugin;
+    private Minion minion;
     public SpawnEntity(Main plugin) {
         this.plugin = plugin;
     }
@@ -37,8 +38,18 @@ public class SpawnEntity implements Listener, CommandExecutor {
                     World world = player.getWorld();
                     Spider spider = (Spider) world.spawnEntity(sploc, EntityType.SPIDER);
                     Skeleton skeleton = (Skeleton) world.spawnEntity(sploc, EntityType.SKELETON);
-                    spider.setPassenger(skeleton);
+                    spider.addPassenger(skeleton);
+                    Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Monster Spawned");
                     break;
+                case "minion":
+                    Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Minion Called");
+                    minion = new Minion(player.getLocation(), player.getUniqueId());
+                    break;
+                case "mine":
+                    minion = new Minion(player.getLocation(), player.getUniqueId());
+                    minion.Mining();
+                    break;
+
             }
         }
         else

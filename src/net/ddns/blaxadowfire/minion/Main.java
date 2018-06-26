@@ -9,8 +9,10 @@ public class Main extends JavaPlugin {
     public void onEnable()
     {
         Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Minion Plugin is loading");
-        //this.getServer().getPluginManager().registerEvents(new SpawnEntity(), this);
+        //this.getServer().getPluginManager().registerEvents(new Minion(), this);
 
+        getCommand("mine").setExecutor(new SpawnEntity(this));
+        getCommand("minion").setExecutor(new SpawnEntity(this));
         getCommand("monster").setExecutor(new SpawnEntity(this));
         getCommand("givesword").setExecutor(new SpawnEntity(this));
         getCommand("givearmor").setExecutor(new SpawnEntity(this));

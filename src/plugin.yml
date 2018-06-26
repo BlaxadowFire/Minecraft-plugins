@@ -18,4 +18,11 @@
       usage: /monster
     givearmor:
       description: give player Diamond armor
+      usage: /givearmor
+    minion:
+      description: Spawns a minion.
+      usage: /minion
+    mine:
+      description: Mines with minion.
+      usage: /mine
  # for info, check: https://bukkit.gamepedia.com/Plugin_YAML
