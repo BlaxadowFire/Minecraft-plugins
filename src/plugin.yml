@@ -2,27 +2,14 @@
  version: 1.0
  description: This plugin enables the users to create and command minions to automate tasks.
  author: BlaxadowFire
- authors: [Shunhui, Mark, Stefan]
+ authors: [Shunhui, Mark, Stefan, Tabuu]
  website: http://blaxadowfire.ddns.net
 
- main: net.ddns.blaxadowfire.minion.Main
+ main: net.ddns.blaxadowfire.minion.MinionPlugin
  database: false
  prefix: minion
 
  commands:
-    givesword:
-      description: Gives a sword.
-      usage: /givesword
-    monster:
-      description: Spawn Skeleton riding Spider.
-      usage: /monster
-    givearmor:
-      description: give player Diamond armor
-      usage: /givearmor
     minion:
-      description: Spawns a minion.
-      usage: /minion
-    mine:
-      description: Mines with minion.
-      usage: /mine
+      description: MinionPlugin minion command.
  # for info, check: https://bukkit.gamepedia.com/Plugin_YAML
