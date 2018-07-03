@@ -1,66 +1,77 @@
 package net.ddns.blaxadowfire.minion;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Villager;
+import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.UUID;
 
 public class Minion {
-    private Villager villager;
+    private Villager minion;
     private MinionTask _minionTask;
     private int _taskId = 0;
+    private UUID uuid;
 
-    public Minion(Location loc, UUID uuid, MinionTask task){
+    public Minion(Location loc, UUID uuid1, MinionTask task){
+        uuid = uuid1;
         ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (byte)3);
-        SkullMeta sm = (SkullMeta) skull.getItemMeta();
+        SkullMeta skullmeta = (SkullMeta) skull.getItemMeta();
+        skullmeta.setOwningPlayer(Bukkit.getOfflinePlayer(uuid).getPlayer());
+        skull.setItemMeta(skullmeta);
 
-        sm.setOwningPlayer(Bukkit.getOfflinePlayer(uuid));
-        skull.setItemMeta(sm);
+        minion = (Villager) loc.getWorld().spawnEntity(loc, EntityType.VILLAGER);
+        minion.getEquipment().setHelmet(skull);
+        minion.getEquipment().setItemInMainHand(new ItemStack(Material.WOOD_PICKAXE));
+        minion.setAI(false);
+        minion.setGravity(true);
+        minion.setGlowing(true);
+        minion.setBaby();
 
-        villager = (Villager) loc.getWorld().spawnEntity(loc, EntityType.VILLAGER);
-        villager.getEquipment().setHelmet(skull);
-        villager.getEquipment().setItemInMainHand(new ItemStack(Material.WOOD_PICKAXE));
-        villager.setAI(false);
-        villager.setGlowing(true);
-        villager.setBaby();
-        villager.setCustomName(Bukkit.getOfflinePlayer(uuid).getName() + "'s minion");
-        villager.setCustomNameVisible(true);
+        minion.setCustomNameVisible(true);
+        minion.setCanPickupItems(true);
+        minion.setInvulnerable(true);
 
         _minionTask = task;
 
         _taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(MinionPlugin.getPlugin(), this::RunTask, 0, 20L);
+
+        minion.setCustomName(Bukkit.getOfflinePlayer(uuid).getName() + "'s minion: " + _taskId);
     }
 
     public void RunTask(){
-        if(villager.isDead())  {
+        if(minion.isDead())  {
             Bukkit.getScheduler().cancelTask(_taskId);
             return;
         }
         switch (_minionTask){
-            case MINING:
+            case MINE:
                 Mine();
                 break;
-            case ATTACKING:
+            case ATTACK:
                 Attack();
+                break;
+            case FOLLOW:
+                Follow();
                 break;
         }
     }
 
     public void Mine(){
-        villager.getTargetBlock(null, 5).breakNaturally(new ItemStack(Material.WOOD_PICKAXE));
+        minion.getTargetBlock(null, 2).breakNaturally(new ItemStack(Material.WOOD_PICKAXE));
     }
 
     public void Attack(){
-        LivingEntity entity = villager.getTarget();
+        LivingEntity entity = minion.getTarget();
         if(entity == null)
             Bukkit.broadcastMessage(":(");
         entity.damage(1);
+    }
+    public void Follow(){
+        minion.setAI(true);
     }
     
 }

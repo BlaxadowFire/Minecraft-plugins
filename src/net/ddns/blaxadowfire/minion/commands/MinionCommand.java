@@ -13,8 +13,10 @@ public class MinionCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         if (sender instanceof Player) {
-            if(args.length != 1)
+            if(args.length != 1) {
                 sender.sendMessage(ChatColor.RED + "Please give minion task");
+                return true;
+            }
             Player player = (Player) sender;
 
             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Minion Called");

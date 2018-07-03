@@ -14,7 +14,7 @@ public class MinionPlugin extends JavaPlugin {
     public void onEnable()
     {
         Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Minion Plugin is loading");
-
+        Bukkit.getServer().getConsoleSender().sendMessage("Server if online: " + Bukkit.getOnlineMode());
         getCommand("minion").setExecutor(new MinionCommand());
 
         instance = this;
