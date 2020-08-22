@@ -1,0 +1,5 @@
+name: DisableDoor
+author: Nando
+description: Disables doors
+version: 1.0
+main: me.BlaxadowFIre.DisableDoor.DisableDoorMain
