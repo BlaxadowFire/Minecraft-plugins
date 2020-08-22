@@ -1,0 +1,15 @@
+ name: minion
+ version: 1.0
+ description: This plugin enables the users to create and command minions to automate tasks.
+ author: BlaxadowFire
+ authors: [Shunhui, Mark, Stefan, Tabuu]
+ website: http://blaxadowfire.ddns.net
+
+ main: net.ddns.blaxadowfire.minion.MinionPlugin
+ database: false
+ prefix: minion
+
+ commands:
+    minion:
+      description: MinionPlugin minion command.
+ # for info, check: https://bukkit.gamepedia.com/Plugin_YAML
