@@ -1,0 +1,14 @@
+name: DeathNote
+author: Nando
+version: 1.0
+description: A plugin based on the Death Note Anime Series
+main: tk.blaxadowfire.minecraft.deathnote.DeathNotePlugin
+api-version: 1.13
+commands:
+  DeathNote:
+    usage: /deathnote
+    aliases: [dn]
+    description: Gives the user a deathnote
+  Die:
+    usage: /die <playername> <day> [cause]
+    description: Kills the targeted user using the deathnote
