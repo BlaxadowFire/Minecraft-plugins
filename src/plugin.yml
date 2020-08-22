@@ -1,0 +1,19 @@
+name: TestServer
+author: Nando
+version: 1.0
+description: a plugin that notifies the players that this is a test server. Also registers usernames to uuid's
+main: tk.blaxadowfire.minecraft.testserver.TestServerPlugin
+commands:
+  gm:
+    usage: /gm <survival/creative>
+    description: set user gamemode
+  clearreload:
+    usage: /clearreload
+    aliases: [cr]
+    description: clears user inventory and reloads the server
+  heal:
+    usage: /heal
+    description: Heals the user
+  feed:
+    usage: /feed
+    description: Feeds the user
