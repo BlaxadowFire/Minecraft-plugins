@@ -1,0 +1,14 @@
+name: CustomCompass
+author: Nando
+version: 1.0
+description: a plugin that allows the user to set custom compas points
+main: tk.blaxadowfire.minecraft.customcompass.CustomCompassPlugin
+commands:
+#  SetCompassPoint:
+#    usage: /setCompassPoint
+#    aliases: [scp]
+#    description: Set the point to which the compass should point
+  CustomCompassPoint:
+    usage: /CustomCompassPoint <Add/Remove/Use/List> [NameOfPoint]
+    aliases: [ccp]
+    description: Creates a custom point to which a compass points
