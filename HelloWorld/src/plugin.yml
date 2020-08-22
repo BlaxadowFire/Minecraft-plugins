@@ -1,0 +1,9 @@
+name: HelloWorld
+author: BlaxadowFire
+description: this is my first plugin
+version: 1.0
+main: me.BlaxadowFire.HelloWorld.HelloWorldMain
+permissions:
+  anvil.use:
+    description: gives permission to use anvil.
+    default: TRUE
